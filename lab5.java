@@ -31,7 +31,6 @@ public class Main {
                 }
                 System.out.println("Исходный список: " + collection);
                 System.out.println("Элемент, который вы хотите заменить: " + k);
-                //in.close();
                 //найдем сумму и кол-во элементов в списке, чтобы найти среднее арифметическое
                 for (int i = 0; i < k; i++) {
                     counter += 1;
@@ -43,15 +42,20 @@ public class Main {
 
                 //сделаем замену соответствующего элемента на среднее арифметическое, которое нашли до этого
                 collection.set(k - 1, srednee);
-                
+
                 System.out.println("конечный вариант вашей коллекции: " + collection);
                 //можно было сделать вариант с округлением, но мне показалось, что так будет удачнее
             } catch (Exception e) {
                 System.out.println("Ошибка. Вы сделали что-то не то, попробуйте еще раз");
             }
-            System.out.println("Желаете повторить программу? Введите да/нет");
-            String answer = in.nextLine();
-            if (answer.equals("нет")) flag = false;
+            System.out.println("Желаете повторить программу? Введите нет, если хотите остановить, либо что-угодно, чтобы продолжить");
+            Scanner sc = new Scanner(System.in);
+            String answer = sc.nextLine();
+            if (answer.equals("нет")|answer.equals("ytn")) {
+                flag = false;
+                in.close();
+                sc.close();
+            }
         }
     }
 }
